@@ -20,10 +20,3 @@ final class ScannedDataLoading extends ScannedState {
   List<Object?> get props => [];
 }
 
-// final class ScannedDataFailure extends ScannedState {
-//   final String error;
-//
-//   ScannedDataFailure(this.error);
-//   @override
-//   List<Object?> get props => [];
-// }

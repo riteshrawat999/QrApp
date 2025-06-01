@@ -8,30 +8,34 @@ Widget qrGenWidget({
   required String title,
   required Widget icon,
   required BuildContext context,
+  required VoidCallback onTap,
 }) {
   return BlocBuilder<ThemeBloc, ThemeState>(
     builder: (context, state) {
-      return Column(
-        children: [
-          Container(
-            height: screenHeight * 0.09,
-            margin: EdgeInsets.all(screenWidth * 0.02),
-            decoration: BoxDecoration(
-              // color: Color(0xfff6f6f6),
-              color: state.isDark ? Colors.black12 : Color(0xfff6f6f6),
-              borderRadius: BorderRadius.circular(15.0),
+      return GestureDetector(
+        onTap: onTap,
+        child: Column(
+          children: [
+            Container(
+              height: screenHeight * 0.09,
+              margin: EdgeInsets.all(screenWidth * 0.02),
+              decoration: BoxDecoration(
+                // color: Color(0xfff6f6f6),
+                color: state.isDark ? Colors.black12 : Color(0xfff6f6f6),
+                borderRadius: BorderRadius.circular(15.0),
+              ),
+              child: Center(child: icon),
             ),
-            child: Center(child: icon),
-          ),
-          Text(
-            title,
-            style: TextStyle(
-              color: Theme.of(context).textTheme.bodyLarge?.color,
-              fontSize: screenWidth * 0.04,
-              fontWeight: FontWeight.w400,
+            Text(
+              title,
+              style: TextStyle(
+                color: Theme.of(context).textTheme.bodyLarge?.color,
+                fontSize: screenWidth * 0.04,
+                fontWeight: FontWeight.w400,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       );
     },
   );

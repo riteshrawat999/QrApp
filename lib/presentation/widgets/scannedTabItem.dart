@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lucide/flutter_lucide.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:intl/intl.dart';
 import 'package:qr_scanner_app/services/db_services.dart';
 import 'package:qr_scanner_app/utils/alert_dialog_custome.dart';
-import '../../utils/open_link.dart';
+import '../../utils/bar_code_type.dart';
 
 Widget scannedTabItem(var state, BuildContext context) {
   final double screenWidth = MediaQuery.of(context).size.width;
@@ -11,25 +12,25 @@ Widget scannedTabItem(var state, BuildContext context) {
     itemCount: state.data.length,
     itemBuilder: (context, index) {
       final data = state.data[index];
+      final typeOfQrFormat = BarcodeTypeDiff().barcode(data.format);
+      final formatedDate = DateFormat('dd-MM-yyyy').format(DateTime.parse(data.timeStamp));
+      final formatedTime = DateFormat('hh:mm a').format(DateTime.parse(data.timeStamp));
       return GestureDetector(
-        onTap: () {
-          launchedScannerUrl(state.barcode, context);
-        },
+        onTap: () {},
         child: Card(
           elevation: 2.0,
           color: Color(0xfff6f6f6),
           child: ListTile(
-            title: Text(data.format),
-            subtitle: Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(data.barcode.toString(),overflow: TextOverflow.ellipsis,),
-                  // SizedBox(height: screenWidth * 0.01,),
-                  Text(data.timeStamp.toString()),
-                ],
-              ),
+            title: Text(typeOfQrFormat), // BarCode Or Qr Code diff
+            subtitle: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(data.barcode.toString(), overflow: TextOverflow.ellipsis),
+                // SizedBox(height: screenWidth * 0.01,),
+                Text(formatedDate),
+                Text(formatedTime),
+              ],
             ),
             trailing: InkWell(
               onTap: () {
@@ -69,7 +70,7 @@ Widget scannedTabItem(var state, BuildContext context) {
                   },
                 );
               },
-              child: Icon(LucideIcons.trash_2,color: Colors.red.shade500,),
+              child: Icon(LucideIcons.trash_2, color: Colors.red.shade500),
             ), // delete icon
           ),
         ),

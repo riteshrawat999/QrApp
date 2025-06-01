@@ -5,10 +5,13 @@ import 'package:qr_scanner_app/bloc/scanned/scanned_bloc.dart';
 import 'package:qr_scanner_app/bloc/scanner/scanner_bloc.dart';
 import 'package:qr_scanner_app/bloc/theme/theme_bloc.dart';
 import 'package:qr_scanner_app/presentation/generator/qr_code_gen_screen.dart';
+import 'package:qr_scanner_app/presentation/input_screen/contact_gen_screen.dart';
 import 'package:qr_scanner_app/presentation/screens/generator_screen.dart';
 import 'package:qr_scanner_app/presentation/screens/mobil_scanner_screen.dart';
 
 import 'package:qr_scanner_app/presentation/screens/navigation_menu.dart';
+
+import 'bloc/contact_qrcode_generate_bloc.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,6 +28,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (_) => ThemeBloc()..add(InitThemeEvent())),
         BlocProvider(create: (context) => ScannerBloc()),
         BlocProvider(create: (context) => ScannedBloc()..add(ScannedOpenEvent())),
+        BlocProvider(create: (context) => ContactQrcodeGenerateBloc()),
       ],
       child: BlocBuilder<ThemeBloc, ThemeState>(
         builder: (context, state) {
@@ -42,6 +46,7 @@ class MyApp extends StatelessWidget {
               '/mobile_scanner': (context) => const MobilScannerScreen(),
               '/generator_screen': (context) => const GeneratorScreen(),
               '/qr_code_gen_screen': (context) => const QrCodeGenScreen(),
+              '/contact_gen' : (context) => const ContactGenScreen(),
             },
           );
         },

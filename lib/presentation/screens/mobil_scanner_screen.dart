@@ -83,11 +83,11 @@ class _MobilScannerScreenState extends State<MobilScannerScreen> {
                           context: context,
                           data: ScannedHistoryModel(
                             barcode: scannerState.barcode,
-                            format: scannerState.format.toString().split('.').last,
+                            format:
+                                scannerState.format.toString().split('.').last,
                             timeStamp: DateTime.now().toIso8601String(),
                             isFavorite: 0,
                           ),
-
                         );
                       },
                       icon: Icon(

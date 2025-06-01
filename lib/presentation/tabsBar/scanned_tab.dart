@@ -22,7 +22,7 @@ class _ScannedTabState extends State<ScannedTab> {
               return Center(child: CircularProgressIndicator(),);
             }
             if (state is ReturnScannedData) {
-
+              // print(state.data.first.barcode);
               return scannedTabItem(state,context);
             }
             return Text("data is not available");
