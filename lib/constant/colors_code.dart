@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class AppColors {
+abstract class AppColors {
   static const Color bottomNavigatorColor = Color(0xFFfffeff);
   static const Color buttonColor = Color(0xFF038c74);
   static const Color scanImageColor = Color(0xFF267fc6);
