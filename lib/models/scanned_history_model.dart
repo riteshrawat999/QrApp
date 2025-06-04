@@ -1,5 +1,3 @@
-import 'package:mobile_scanner/mobile_scanner.dart';
-
 class ScannedHistoryModel {
   final int? scanId;
   final String barcode;
@@ -8,7 +6,7 @@ class ScannedHistoryModel {
   final int isFavorite;
 
   const ScannedHistoryModel({
-     this.scanId,
+    this.scanId,
     required this.barcode,
     required this.format,
     required this.timeStamp,

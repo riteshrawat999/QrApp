@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:qr_scanner_app/constant/colors_code.dart';
@@ -146,7 +145,7 @@ class GeneratorScreen extends StatelessWidget {
               physics: const NeverScrollableScrollPhysics(),
               children: [
                 qrGenWidget(
-                  onTap: (){
+                  onTap: () {
                     Navigator.pushNamed(context, '/contact_gen');
                   },
                   context: context,
@@ -159,7 +158,7 @@ class GeneratorScreen extends StatelessWidget {
                   ),
                 ),
                 qrGenWidget(
-                  onTap: (){},
+                  onTap: () {},
                   context: context,
                   screenHeight: screenHeight,
                   screenWidth: screenWidth,
@@ -170,7 +169,7 @@ class GeneratorScreen extends StatelessWidget {
                   ),
                 ),
                 qrGenWidget(
-                  onTap: (){},
+                  onTap: () {},
                   context: context,
                   screenHeight: screenHeight,
                   screenWidth: screenWidth,
@@ -182,7 +181,7 @@ class GeneratorScreen extends StatelessWidget {
                   ),
                 ),
                 qrGenWidget(
-                  onTap: (){},
+                  onTap: () {},
                   context: context,
                   screenHeight: screenHeight,
                   screenWidth: screenWidth,
@@ -197,7 +196,7 @@ class GeneratorScreen extends StatelessWidget {
                   ),
                 ),
                 qrGenWidget(
-                  onTap: (){},
+                  onTap: () {},
                   context: context,
                   screenHeight: screenHeight,
                   screenWidth: screenWidth,
@@ -209,9 +208,7 @@ class GeneratorScreen extends StatelessWidget {
                   ),
                 ),
                 qrGenWidget(
-                  onTap: () {
-
-                  },
+                  onTap: () {},
                   context: context,
                   screenHeight: screenHeight,
                   screenWidth: screenWidth,
@@ -234,9 +231,7 @@ class GeneratorScreen extends StatelessWidget {
                   ),
                 ),
                 qrGenWidget(
-                  onTap: (){
-
-                  },
+                  onTap: () {},
                   context: context,
                   screenHeight: screenHeight,
                   screenWidth: screenWidth,

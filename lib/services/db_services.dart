@@ -14,7 +14,7 @@ class DBHelper {
   static Future<Database> _getDB() async {
     return openDatabase(
       join(await getDatabasesPath(), _dbName),
-      onCreate: (db, _dbVersion) async {
+      onCreate: (db, dbVersion) async {
         return await db.execute(
           "CREATE TABLE $_tableName(scanId INTEGER PRIMARY KEY,barcode TEXT NOT NULL,format TEXT,timeStamp TEXT NOT NULL,isFavorite INTEGER)",
         );
@@ -35,7 +35,6 @@ class DBHelper {
         data.toJson(),
         conflictAlgorithm: ConflictAlgorithm.replace,
       );
-
       Fluttertoast.showToast(
         msg: "Successfully Save Scanned",
         toastLength: Toast.LENGTH_SHORT,

@@ -11,7 +11,7 @@ import 'package:qr_scanner_app/presentation/screens/mobil_scanner_screen.dart';
 
 import 'package:qr_scanner_app/presentation/screens/navigation_menu.dart';
 
-import 'bloc/contact_qrcode_generate_bloc.dart';
+import 'bloc/contact/contact_qrcode_generate_bloc.dart';
 
 void main() {
   runApp(const MyApp());

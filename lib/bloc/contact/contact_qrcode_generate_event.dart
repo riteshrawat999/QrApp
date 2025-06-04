@@ -1,14 +1,13 @@
 part of 'contact_qrcode_generate_bloc.dart';
 
-@immutable
-sealed class ContactQrcodeGenerateEvent extends Equatable{}
+sealed class ContactQrcodeGenerateEvent extends Equatable {}
 
-class ContactQrcodeGenerateInitial extends ContactQrcodeGenerateEvent{
+class ContactQrcodeGenerateInitial extends ContactQrcodeGenerateEvent {
   @override
   List<Object?> get props => [];
 }
 
-class GenerateContactQrcode extends ContactQrcodeGenerateEvent{
+class GenerateContactQrcode extends ContactQrcodeGenerateEvent {
   final ContactModelGenerate contactModel;
   GenerateContactQrcode({required this.contactModel});
   @override
