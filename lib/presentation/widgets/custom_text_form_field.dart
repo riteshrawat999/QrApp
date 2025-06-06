@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 Widget customTextField(
   TextEditingController controller,
@@ -6,12 +7,21 @@ Widget customTextField(
   String hintText,
   String labelText,
   TextInputType textInputType,
-  Widget icon,
-) {
+  Widget icon, {
+  List<TextInputFormatter>? inputFormatters,
+  String? Function(String?)? validator,
+  bool autoValidate = false,
+}) {
   final double screenWidth = MediaQuery.of(context).size.width;
-  return TextField(
+  return TextFormField(
     controller: controller,
     keyboardType: textInputType,
+    inputFormatters: inputFormatters ?? [],
+    validator: validator,
+    autovalidateMode:
+        autoValidate
+            ? AutovalidateMode.onUserInteraction
+            : AutovalidateMode.disabled,
     decoration: InputDecoration(
       prefixIcon: icon,
       hintText: hintText,

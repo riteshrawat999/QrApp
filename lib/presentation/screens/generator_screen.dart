@@ -158,7 +158,9 @@ class GeneratorScreen extends StatelessWidget {
                   ),
                 ),
                 qrGenWidget(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, '/phone_screen');
+                  },
                   context: context,
                   screenHeight: screenHeight,
                   screenWidth: screenWidth,
